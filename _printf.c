@@ -22,7 +22,11 @@ int _printf(const char *format, ...)
 				if (*(i + 1) == 'c')
 					putchar(va_arg(list, int)), i++;
 				else if (*(i + 1) == 's')
-					arg = va_arg(list, char *), write(1, arg, strlen(arg)), i++;
+				{
+					arg = va_arg(list, char *);
+					while (*arg)
+						putchar(*arg), arg++;
+					i++; }
 				else if (*(i + 1) == '%')
 					putchar('%'), i++;
 				else if (*(i + 1) == 'd' || *(i + 1) == 'i')
