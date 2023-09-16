@@ -33,6 +33,16 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				i++;
 			}
+			else if (*(i + 1) == 'd' || *(i + 1) == 'i')
+			{
+				print_number(va_arg(list, int));
+				i++;
+			}
+			else if (*(i + 1) == 'u')
+			{
+				print_unumber(va_arg(list, int));
+				i++;
+			}
 			else
 				exit(EXIT_FAILURE);
 
@@ -55,3 +65,169 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+/**
+ * print_number - print integers
+ * @n: integer
+ * Return: None
+ */
+void print_unumber(unsigned int n)
+{
+	int i;
+	int a = _ulen(n);
+	char hold;
+
+	if (n > 9)
+	{
+		hold = (n / _upow(10, a - 1)) + '0';
+		write (1, &hold, 1);
+		for (i = 2; i < a; i++)
+		{
+			hold = (n / _upow(10, (a - i))) % 10 + '0';
+			write (1, &hold, 1);
+		}
+	}
+	hold = (n % 10) + '0';
+	write (1, &hold, 1);
+}
+
+/**
+ * _len - give a length of un integer.
+ * @n: integer
+ * Return: number of digit in n
+ */
+int _ulen(unsigned int n)
+{
+	int i;
+
+	i = 0;
+	if (n < 0)
+	{
+		while (n <= -1)
+		{
+			n /= 10;
+			i++;
+		}
+		return (i);
+	}
+	else
+	{
+		if (n == 0)
+			return (1);
+		while (n >= 1)
+		{
+			n /= 10;
+			i++;
+		}
+		return (i);
+	}
+}
+
+/**
+ * _pow - raised m to the power of n
+ * @m: the base is an integer
+ * @n: the exponent is an integer
+ * Return: m raised to n
+ */
+unsigned int _upow(int m, int n)
+{
+	unsigned int r;
+	int i;
+
+	r = 1;
+	for (i = 0; i < n; i++)
+	{
+		r *= (unsigned int)m;
+	}
+	return (r);
+}
+
+void print_number(int n)
+{
+	int a, i;
+	char hold;
+
+	a = _len(n);
+	if (n >= 0)
+	{
+		if (n > 9)
+		{
+			hold = (n / _pow(10, a - 1)) + '0';
+			write (1, &hold, 1);
+			for (i = 2; i < a; i++)
+			{
+				hold = (n / _pow(10, (a - i))) % 10 + '0';
+				write (1, &hold, 1);
+			}
+		}
+		hold = (n % 10) + '0';
+		write (1, &hold, 1);
+	}
+	else
+	{
+		hold = '-';
+		write (1, &hold, 1);
+		if (n < -9)
+		{
+			hold = -(n / _pow(10, a - 1)) + '0';
+			write (1, &hold, 1);
+			for (i = 2; i < a; i++)
+			{
+				hold = -(n / _pow(10, a - i)) % 10 + '0';
+				write (1, &hold, 1);
+			}
+		}
+		hold = -(n % 10) + '0';
+		write (1, &hold, 1);
+	}
+}
+
+/**
+ * _len - give a length of un integer.
+ * @n: integer
+ * Return: number of digit in n
+ */
+int _len(int n)
+{
+	int i;
+
+	i = 0;
+	if (n < 0)
+	{
+		while (n <= -1)
+		{
+			n /= 10;
+			i++;
+		}
+		return (i);
+	}
+	else
+	{
+		if (n == 0)
+			return (1);
+		while (n >= 1)
+		{
+			n /= 10;
+			i++;
+		}
+		return (i);
+	}
+}
+
+/**
+ * _pow - raised m to the power of n
+ * @m: the base is an integer
+ * @n: the exponent is an integer
+ * Return: m raised to n
+ */
+int _pow(int m, int n)
+{
+	int r, i;
+
+	r = 1;
+	for (i = 0; i < n; i++)
+	{
+		r *= m;
+	}
+	return (r);
+}
+
