@@ -2,7 +2,7 @@
 
 
 /**
- * _pow - raised m to the power of n
+ * _upow - raised m to the power of n
  * @m: the base is an integer
  * @n: the exponent is an integer
  * Return: m raised to n
