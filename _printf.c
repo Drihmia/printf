@@ -10,7 +10,6 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	const char *i = format;
-	int c;
 	char *arg;
 
 	va_start(list, format);
@@ -20,18 +19,13 @@ int _printf(const char *format, ...)
 		{
 			if (*(i + 1) == 'c')
 			{
-				c = va_arg(list, int);
-				_putchar(c);
+				_putchar(va_arg(list, int));
 				i++;
 			}
 			else if (*(i + 1) == 's')
 			{
 				arg = va_arg(list, char *);
-				while (*arg)
-				{
-					_putchar(*arg);
-					arg++;
-				}
+				write(1, arg, strlen(arg));
 				i++;
 			}
 			else if (*(i + 1) == '%')
