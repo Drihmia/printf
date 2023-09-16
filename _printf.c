@@ -18,11 +18,11 @@ int _printf(const char *format, ...)
 		if (*i == '%')
 		{
 			if (*(i + 1) == 'c')
-				_putchar(va_arg(list, int)), i++;
+				putchar(va_arg(list, int)), i++;
 			else if (*(i + 1) == 's')
 				arg = va_arg(list, char *), write(1, arg, strlen(arg)), i++;
 			else if (*(i + 1) == '%')
-				_putchar('%'), i++;
+				putchar('%'), i++;
 			else if (*(i + 1) == 'd' || *(i + 1) == 'i')
 				print_number(va_arg(list, int)), i++;
 			else if (*(i + 1) == 'u')
@@ -32,23 +32,12 @@ int _printf(const char *format, ...)
 
 		}
 		else
-			_putchar(*i);
+			putchar(*i);
 	}
 	va_end(list);
 	return (strlen(format));
 }
 
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 /**
  * print_unumber - print unsigned integers
  * @n: integer
@@ -84,17 +73,6 @@ int _ulen(unsigned int n)
 	int i;
 
 	i = 0;
-	if (n < 0)
-	{
-		while (n <= -1)
-		{
-			n /= 10;
-			i++;
-		}
-		return (i);
-	}
-	else
-	{
 		if (n == 0)
 			return (1);
 		while (n >= 1)
@@ -103,7 +81,6 @@ int _ulen(unsigned int n)
 			i++;
 		}
 		return (i);
-	}
 }
 
 /**
