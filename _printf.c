@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 	va_list list;
 	const char *i = format;
 	char *arg;
-	if (format != NULL && format[0] !='\’n')
+
+	if (format != NULL && format[0] != '\n')
 	{
 		va_start(list, format);
 		for (; *i != '\0'; i++)
