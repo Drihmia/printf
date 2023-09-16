@@ -6,7 +6,7 @@
  * Return: it always return 0
  */
 
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 va_list list;
 va_start(list, format);
@@ -25,7 +25,7 @@ if (*i == '%')
 	char arg = va_arg(list, const char *);
 		while (*arg)
 		{
-			putchar(c);
+			putchar(*arg);
 			arg++;
 		}
 		i++;
