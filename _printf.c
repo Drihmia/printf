@@ -40,7 +40,10 @@ int _printf(const char *format, ...)
 				i++;
 			}
 			else
+			{
+				_putchar('\n');
 				exit(EXIT_FAILURE);
+			}
 
 		}
 		else
