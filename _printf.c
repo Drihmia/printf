@@ -41,7 +41,6 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				_putchar('\n');
 				exit(EXIT_FAILURE);
 			}
 
@@ -49,9 +48,8 @@ int _printf(const char *format, ...)
 		else
 			_putchar(*i);
 	}
-	_putchar('\n');
 	va_end(list);
-	return (0);
+	return (strlen(format));
 }
 
 /**
