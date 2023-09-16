@@ -39,6 +39,8 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				i++;
 			}
+			else
+				exit(EXIT_FAILURE);
 
 		}
 		else
