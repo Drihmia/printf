@@ -18,31 +18,15 @@ int _printf(const char *format, ...)
 		if (*i == '%')
 		{
 			if (*(i + 1) == 'c')
-			{
-				_putchar(va_arg(list, int));
-				i++;
-			}
+				_putchar(va_arg(list, int)), i++;
 			else if (*(i + 1) == 's')
-			{
-				arg = va_arg(list, char *);
-				write(1, arg, strlen(arg));
-				i++;
-			}
+				arg = va_arg(list, char *), write(1, arg, strlen(arg)), i++;
 			else if (*(i + 1) == '%')
-			{
-				_putchar('%');
-				i++;
-			}
+				_putchar('%'), i++;
 			else if (*(i + 1) == 'd' || *(i + 1) == 'i')
-			{
-				print_number(va_arg(list, int));
-				i++;
-			}
+				print_number(va_arg(list, int)), i++;
 			else if (*(i + 1) == 'u')
-			{
-				print_unumber(va_arg(list, int));
-				i++;
-			}
+				print_unumber(va_arg(list, int)), i++;
 			else
 				exit(EXIT_FAILURE);
 
@@ -66,7 +50,7 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * print_number - print integers
+ * print_unumber - print unsigned integers
  * @n: integer
  * Return: None
  */
@@ -78,20 +62,20 @@ void print_unumber(unsigned int n)
 
 	if (n > 9)
 	{
-		hold = (n / _upow(10, a - 1)) + '0';
-		write (1, &hold, 1);
+		hold = (n / (int)pow(10, a - 1)) + '0';
+		write(1, &hold, 1);
 		for (i = 2; i < a; i++)
 		{
-			hold = (n / _upow(10, (a - i))) % 10 + '0';
-			write (1, &hold, 1);
+			hold = (n / (int)pow(10, (a - i))) % 10 + '0';
+			write(1, &hold, 1);
 		}
 	}
 	hold = (n % 10) + '0';
-	write (1, &hold, 1);
+	write(1, &hold, 1);
 }
 
 /**
- * _len - give a length of un integer.
+ * _ulen - give a length of unsigned integer.
  * @n: integer
  * Return: number of digit in n
  */
@@ -123,23 +107,10 @@ int _ulen(unsigned int n)
 }
 
 /**
- * _pow - raised m to the power of n
- * @m: the base is an integer
- * @n: the exponent is an integer
- * Return: m raised to n
+ * print_number - print integers
+ * @n: integer
+ * Return: None
  */
-unsigned int _upow(int m, int n)
-{
-	unsigned int r;
-	int i;
-
-	r = 1;
-	for (i = 0; i < n; i++)
-	{
-		r *= (unsigned int)m;
-	}
-	return (r);
-}
 
 void print_number(int n)
 {
@@ -151,33 +122,33 @@ void print_number(int n)
 	{
 		if (n > 9)
 		{
-			hold = (n / _pow(10, a - 1)) + '0';
-			write (1, &hold, 1);
+			hold = (n / (int)pow(10, a - 1)) + '0';
+			write(1, &hold, 1);
 			for (i = 2; i < a; i++)
 			{
-				hold = (n / _pow(10, (a - i))) % 10 + '0';
-				write (1, &hold, 1);
+				hold = (n / (int)pow(10, (a - i))) % 10 + '0';
+				write(1, &hold, 1);
 			}
 		}
 		hold = (n % 10) + '0';
-		write (1, &hold, 1);
+		write(1, &hold, 1);
 	}
 	else
 	{
 		hold = '-';
-		write (1, &hold, 1);
+		write(1, &hold, 1);
 		if (n < -9)
 		{
-			hold = -(n / _pow(10, a - 1)) + '0';
-			write (1, &hold, 1);
+			hold = -(n / (int)pow(10, a - 1)) + '0';
+			write(1, &hold, 1);
 			for (i = 2; i < a; i++)
 			{
-				hold = -(n / _pow(10, a - i)) % 10 + '0';
-				write (1, &hold, 1);
+				hold = -(n / (int)pow(10, a - i)) % 10 + '0';
+				write(1, &hold, 1);
 			}
 		}
 		hold = -(n % 10) + '0';
-		write (1, &hold, 1);
+		write(1, &hold, 1);
 	}
 }
 
@@ -212,22 +183,3 @@ int _len(int n)
 		return (i);
 	}
 }
-
-/**
- * _pow - raised m to the power of n
- * @m: the base is an integer
- * @n: the exponent is an integer
- * Return: m raised to n
- */
-int _pow(int m, int n)
-{
-	int r, i;
-
-	r = 1;
-	for (i = 0; i < n; i++)
-	{
-		r *= m;
-	}
-	return (r);
-}
-
