@@ -5,7 +5,7 @@
  * @n: integer
  * Return: None
  */
-void print_unumber(unsigned int n)
+int print_unumber(unsigned int n)
 {
 	int i;
 	int a = _ulen(n);
@@ -23,6 +23,7 @@ void print_unumber(unsigned int n)
 	}
 	hold = (n % 10) + '0';
 	putchar(hold);
+	return (_len(n));
 }
 
 /**
@@ -48,10 +49,10 @@ int _ulen(unsigned int n)
 /**
  * print_number - print integers
  * @n: integer
- * Return: None
+ * Return: the lenght of the number printed.
  */
 
-void print_number(int n)
+int print_number(int n)
 {
 	int a, i;
 	char hold;
@@ -89,6 +90,7 @@ void print_number(int n)
 		hold = -(n % 10) + '0';
 		putchar(hold);
 	}
+	return (_len(n));
 }
 
 /**
