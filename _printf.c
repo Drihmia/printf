@@ -27,11 +27,9 @@ int _printf(const char *format, ...)
 					len_pr += print_str(va_arg(list, char *)), i++;
 				else if (*(i + 1) == '%')
 					putchar('%'), i++;
-				else if (*(i + 1) == 'd' || *(i + 1) == 'i')
-					len_pr += print_number(va_arg(list, int)), i++;
+				else if (*(i + 1) == 'd' || *(i + 1) == 'i' || *(i + 1) == 'u')
+					len_pr += print_numbers(list, *(i + 1)), i++;
 				else if (*(i + 1) == 'o')
-					len_pr += print_number(oct(va_arg(list, int))), i++;
-				else if (*(i + 1) == 'u')
 					len_pr += print_unumber(va_arg(list, unsigned int)), i++;
 				else
 					return (-1);
