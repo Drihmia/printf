@@ -10,153 +10,31 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	const char *i = format;
-	char *arg;
 
-	va_start(list, format);
-	for (; *i != '\0'; i++)
+	if (format != NULL && format[0] != '\0')
 	{
-		if (*i == '%')
+		va_start(list, format);
+		for (; *i != '\0'; i++)
 		{
-			if (*(i + 1) == 'c')
-				putchar(va_arg(list, int)), i++;
-			else if (*(i + 1) == 's')
-				arg = va_arg(list, char *), write(1, arg, strlen(arg)), i++;
-			else if (*(i + 1) == '%')
-				putchar('%'), i++;
-			else if (*(i + 1) == 'd' || *(i + 1) == 'i')
-				print_number(va_arg(list, int)), i++;
-			else if (*(i + 1) == 'u')
-				print_unumber(va_arg(list, int)), i++;
+			if (*i == '%')
+			{
+				if (*(i + 1) == 'c')
+					putchar(va_arg(list, int)), i++;
+				else if (*(i + 1) == 's')
+					print_str(va_arg(list, char *)), i++;
+				else if (*(i + 1) == '%')
+					putchar('%'), i++;
+				else if (*(i + 1) == 'd' || *(i + 1) == 'i')
+					print_number(va_arg(list, int)), i++;
+				else if (*(i + 1) == 'u')
+					print_unumber(va_arg(list, unsigned int)), i++;
+				else
+					exit(EXIT_FAILURE);
+			}
 			else
-				exit(EXIT_FAILURE);
-
+				putchar(*i);
 		}
-		else
-			putchar(*i);
+		va_end(list);
 	}
-	va_end(list);
 	return (strlen(format));
-}
-
-/**
- * print_unumber - print unsigned integers
- * @n: integer
- * Return: None
- */
-void print_unumber(unsigned int n)
-{
-	int i;
-	int a = _ulen(n);
-	char hold;
-
-	if (n > 9)
-	{
-		hold = (n / (int)pow(10, a - 1)) + '0';
-		write(1, &hold, 1);
-		for (i = 2; i < a; i++)
-		{
-			hold = (n / (int)pow(10, (a - i))) % 10 + '0';
-			write(1, &hold, 1);
-		}
-	}
-	hold = (n % 10) + '0';
-	write(1, &hold, 1);
-}
-
-/**
- * _ulen - give a length of unsigned integer.
- * @n: integer
- * Return: number of digit in n
- */
-int _ulen(unsigned int n)
-{
-	int i;
-
-	i = 0;
-		if (n == 0)
-			return (1);
-		while (n >= 1)
-		{
-			n /= 10;
-			i++;
-		}
-		return (i);
-}
-
-/**
- * print_number - print integers
- * @n: integer
- * Return: None
- */
-
-void print_number(int n)
-{
-	int a, i;
-	char hold;
-
-	a = _len(n);
-	if (n >= 0)
-	{
-		if (n > 9)
-		{
-			hold = (n / (int)pow(10, a - 1)) + '0';
-			write(1, &hold, 1);
-			for (i = 2; i < a; i++)
-			{
-				hold = (n / (int)pow(10, (a - i))) % 10 + '0';
-				write(1, &hold, 1);
-			}
-		}
-		hold = (n % 10) + '0';
-		write(1, &hold, 1);
-	}
-	else
-	{
-		hold = '-';
-		write(1, &hold, 1);
-		if (n < -9)
-		{
-			hold = -(n / (int)pow(10, a - 1)) + '0';
-			write(1, &hold, 1);
-			for (i = 2; i < a; i++)
-			{
-				hold = -(n / (int)pow(10, a - i)) % 10 + '0';
-				write(1, &hold, 1);
-			}
-		}
-		hold = -(n % 10) + '0';
-		write(1, &hold, 1);
-	}
-}
-
-/**
- * _len - give a length of un integer.
- * @n: integer
- * Return: number of digit in n
- */
-int _len(int n)
-{
-	int i;
-
-	i = 0;
-	if (n < 0)
-	{
-		while (n <= -1)
-		{
-			n /= 10;
-			i++;
-		}
-		return (i);
-	}
-	else
-	{
-		if (n == 0)
-			return (1);
-		while (n >= 1)
-		{
-			n /= 10;
-			i++;
-		}
-		return (i);
-	}
 }
