@@ -5,7 +5,7 @@
  * @n: integer
  * Return: None
  */
-void print_unumber(unsigned int n)
+int print_unumber(unsigned int n)
 {
 	int i;
 	int a = _ulen(n);
@@ -23,6 +23,7 @@ void print_unumber(unsigned int n)
 	}
 	hold = (n % 10) + '0';
 	putchar(hold);
+	return (_len(n));
 }
 
 /**

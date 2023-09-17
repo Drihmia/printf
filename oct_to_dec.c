@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * oct_to_dec - this function convert octal to decimal number
+ * oct - this function convert octal to decimal number
  * @n: the number that we want to convert
  * Return: it return decimal number
  */
 
-int oct_to_dec(int n)
+int oct(int n)
 {
 int s, i = 0;
 int sum = 0;

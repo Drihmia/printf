@@ -46,14 +46,17 @@ int _pow(int m, int n)
  */
 int print_str(char *str)
 {
+	int p_l;
+
 	if (str == NULL)
 		str = "(null)";
+	p_l = _strlen_printed(str);
 	while (*str)
 	{
 		putchar(*str);
 		str++;
 	}
-	return (_strlen_printed(str));
+	return (p_l);
 }
 
 /**
@@ -68,12 +71,11 @@ int _strlen_printed(const char *s)
 	i = 0;
 	while (*s != '\0')
 	{
-		s++;
 		if (*s == '%')
 		{
 			s++;
 			if (*s == '%')
-				i++;
+				i++, s++;
 			else if (*s == 'c' || *s == 'd' || *s == 'e')
 				s++;
 			else if (*s == 'f' || *s == 'g' || *s == 'i')
@@ -84,7 +86,10 @@ int _strlen_printed(const char *s)
 				s++;
 		}
 		else if ((*s >= 32 && *s < 127) || (*s <= 13 && *s >= 7))
+		{
 			i++;
+			s++;
+		}
 	}
 	return (i);
 }
