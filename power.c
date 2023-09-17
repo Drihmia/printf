@@ -46,6 +46,8 @@ int _pow(int m, int n)
  */
 void print_str(char *str)
 {
+	if (str == NULL)
+		str = "(null)";
 	while (*str)
 	{
 		putchar(*str);
@@ -66,8 +68,10 @@ int _strlen_printed(const char *s)
 	while (*s != '\0')
 	{
 		s++;
-		if(*s >= 32)
+		if ((*s >= 32 && *s < 127) || (*s <= 13 && *s >= 7))
+		{
 			i++;
+		}
 	}
 	return (i);
 }
