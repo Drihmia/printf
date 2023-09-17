@@ -52,3 +52,22 @@ void print_str(char *str)
 		str++;
 	}
 }
+
+/**
+ * _strlen_printed - determine the number of printed char in a string.
+ * @s: string.
+ * Return: return the lenght of the given string s.
+ */
+int _strlen_printed(const char *s)
+{
+	int i;
+
+	i = 0;
+	while (*s != '\0')
+	{
+		s++;
+		if(*s >= 32)
+			i++;
+	}
+	return (i);
+}
