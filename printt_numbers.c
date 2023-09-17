@@ -14,15 +14,15 @@ void print_unumber(unsigned int n)
 	if (n > 9)
 	{
 		hold = (n / (int)_pow(10, a - 1)) + '0';
-		write(1, &hold, 1);
+		putchar(hold);
 		for (i = 2; i < a; i++)
 		{
 			hold = (n / (int)_pow(10, (a - i))) % 10 + '0';
-			write(1, &hold, 1);
+			putchar(hold);
 		}
 	}
 	hold = (n % 10) + '0';
-	write(1, &hold, 1);
+	putchar(hold);
 }
 
 /**
@@ -62,32 +62,32 @@ void print_number(int n)
 		if (n > 9)
 		{
 			hold = (n / (int)_pow(10, a - 1)) + '0';
-			write(1, &hold, 1);
+			putchar(hold);
 			for (i = 2; i < a; i++)
 			{
 				hold = (n / (int)_pow(10, (a - i))) % 10 + '0';
-				write(1, &hold, 1);
+				putchar(hold);
 			}
 		}
 		hold = (n % 10) + '0';
-		write(1, &hold, 1);
+		putchar(hold);
 	}
 	else
 	{
 		hold = '-';
-		write(1, &hold, 1);
+		putchar(hold);
 		if (n < -9)
 		{
 			hold = -(n / (int)_pow(10, a - 1)) + '0';
-			write(1, &hold, 1);
+			putchar(hold);
 			for (i = 2; i < a; i++)
 			{
 				hold = -(n / (int)_pow(10, a - i)) % 10 + '0';
-				write(1, &hold, 1);
+				putchar(hold);
 			}
 		}
 		hold = -(n % 10) + '0';
-		write(1, &hold, 1);
+		putchar(hold);
 	}
 }
 
