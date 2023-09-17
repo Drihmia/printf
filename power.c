@@ -38,3 +38,17 @@ int _pow(int m, int n)
 	}
 	return (r);
 }
+
+/**
+ * print_str - print a string.
+ * @str: pointer to char.
+ * Return: None.
+ */
+void print_str(char *str)
+{
+	while (*str)
+	{
+		putchar(*str);
+		str++;
+	}
+}

@@ -10,7 +10,6 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	const char *i = format;
-	char *arg;
 
 	if (format != NULL && format[0] != '\0')
 	{
@@ -22,17 +21,13 @@ int _printf(const char *format, ...)
 				if (*(i + 1) == 'c')
 					putchar(va_arg(list, int)), i++;
 				else if (*(i + 1) == 's')
-				{
-					arg = va_arg(list, char *);
-					while (*arg)
-						putchar(*arg), arg++;
-					i++; }
+					print_str(va_arg(list, char *)), i++;
 				else if (*(i + 1) == '%')
 					putchar('%'), i++;
 				else if (*(i + 1) == 'd' || *(i + 1) == 'i')
 					print_number(va_arg(list, int)), i++;
 				else if (*(i + 1) == 'u')
-					print_unumber(va_arg(list, int)), i++;
+					print_unumber(va_arg(list, unsigned int)), i++;
 				else
 					exit(EXIT_FAILURE);
 			}
