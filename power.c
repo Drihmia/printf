@@ -69,7 +69,7 @@ int _strlen_printed(const char *s)
 	while (*s != '\0')
 	{
 		s++;
-		if ( *s == '%')
+		if (*s == '%')
 		{
 			s++;
 			if (*s == '%')
