@@ -62,16 +62,16 @@ void print_str(char *str)
  */
 int _strlen_printed(const char *s)
 {
-	int i;
+	/*int i = 0;
 
-	i = 0;
 	while (*s != '\0')
 	{
-		s++;
 		if ((*s >= 32 && *s < 127) || (*s <= 13 && *s >= 7))
 		{
 			i++;
 		}
-	}
-	return (i);
+	s++;
+	}*/
+
+	return (strlen(s));
 }
