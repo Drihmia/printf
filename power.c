@@ -42,9 +42,9 @@ int _pow(int m, int n)
 /**
  * print_str - print a string.
  * @str: pointer to char.
- * Return: None.
+ * Return: the lenght of printed chars.
  */
-void print_str(char *str)
+int print_str(char *str)
 {
 	if (str == NULL)
 		str = "(null)";
@@ -53,6 +53,7 @@ void print_str(char *str)
 		putchar(*str);
 		str++;
 	}
+	return (_strlen_printed(str));
 }
 
 /**
@@ -62,16 +63,28 @@ void print_str(char *str)
  */
 int _strlen_printed(const char *s)
 {
-	/*int i = 0;
+	int i;
 
+	i = 0;
 	while (*s != '\0')
 	{
-		if ((*s >= 32 && *s < 127) || (*s <= 13 && *s >= 7))
+		s++;
+		if ( *s == '%')
 		{
-			i++;
+			s++;
+			if (*s == '%')
+				i++;
+			else if (*s == 'c' || *s == 'd' || *s == 'e')
+				s++;
+			else if (*s == 'f' || *s == 'g' || *s == 'i')
+				s++;
+			else if (*s == 'o' || *s == 's' || *s == 'u')
+				s++;
+			else if (*s == 'x')
+				s++;
 		}
-	s++;
-	}*/
-
-	return (strlen(s));
+		else if ((*s >= 32 && *s < 127) || (*s <= 13 && *s >= 7))
+			i++;
+	}
+	return (i);
 }
