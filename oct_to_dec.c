@@ -14,7 +14,7 @@ while (n > 0)
 	{
 	s = n % 10;
 	n = n / 10;
-	sum += pow(8, i) * s;
+	sum += _pow(8, i) * s;
 	i++;
 	}
 return (sum);
