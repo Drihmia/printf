@@ -29,12 +29,12 @@ int _printf(const char *format, ...)
 				else if (*(i + 1) == 'u')
 					print_unumber(va_arg(list, unsigned int)), i++;
 				else
-					exit(EXIT_FAILURE);
+					return (-1);
 			}
 			else
 				putchar(*i);
 		}
 		va_end(list);
 	}
-	return (strlen(format));
+	return (_strlen_printed(format));
 }

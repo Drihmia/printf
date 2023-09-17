@@ -15,6 +15,7 @@ void print_unumber(unsigned int n);
 int _ulen(unsigned int n);
 unsigned int _upow(int m, int n);
 void print_str(char *str);
+int _strlen_printed(const char *s);
 
 
 #endif
