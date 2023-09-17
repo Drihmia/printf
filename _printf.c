@@ -33,8 +33,6 @@ int _printf(const char *format, ...)
 					len_pr += print_number(oct(va_arg(list, int))), i++;
 				else if (*(i + 1) == 'u')
 					len_pr += print_unumber(va_arg(list, unsigned int)), i++;
-				else if (*(i + 1) == 'r')
-					putchar('r'), i++;
 				else
 					return (-1);
 			}
