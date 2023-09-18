@@ -90,7 +90,7 @@ int print_number(int n)
 		hold = -(n % 10) + '0';
 		putchar(hold);
 	}
-	return (_len(n));
+	return (n < 0 ? _len(n) + 1 : _len(n));
 }
 
 /**
