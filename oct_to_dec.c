@@ -8,14 +8,15 @@
 
 int oct(int n)
 {
-int s, i = 0;
-int sum = 0;
-while (n > 0)
+	int s, i = 0;
+	int sum = 0;
+
+	while (n > 0)
 	{
-	s = n % 10;
-	n = n / 10;
-	sum += _pow(8, i) * s;
-	i++;
+		s = n % 10;
+		n = n / 10;
+		sum += _pow(8, i) * s;
+		i++;
 	}
-return (sum);
+	return (sum);
 }

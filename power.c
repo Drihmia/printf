@@ -68,6 +68,8 @@ int _strlen_printed(const char *s)
 {
 	int i;
 
+	if (s == NULL)
+		return (-1);
 	i = 0;
 	while (*s != '\0')
 	{
