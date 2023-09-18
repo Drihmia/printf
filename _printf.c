@@ -32,7 +32,10 @@ int _printf(const char *format, ...)
 				else if (*(i + 1) == 'O')
 					len_pr += print_number(oct(va_arg(list, int))), i++;
 				else if (*(i + 1) == 'b')
+				{
 					len_pr += print_str(bin(va_arg(list, unsigned int))), i++;
+					free(bin(va_arg(list, unsigned int)));
+				}
 				else if (*(i + 1) == 'x' || *(i + 1) == 'X' || *(i + 1) == 'X')
 					i++;
 				else if (*(i + 1) == 'p')

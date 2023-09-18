@@ -54,10 +54,11 @@ char *bin(unsigned int n)
 		return (NULL);
 	while (lem > 0)
 	{
-		str[lem - 1] = m % 2 + '0';
+		str[lem - 2] = m % 2 + '0';
 		m /= 2;
 		lem--;
 	}
+	str[len - 1] = '\0';
 	return (str);
 }
 
