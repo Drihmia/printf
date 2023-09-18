@@ -18,3 +18,26 @@ int dec_to_bina(unsigned int n)
 	}
 	return (i);
 }
+
+/**
+ * DEC_TO_HEXA - this function convert a decimal number to an hexa with uppercase
+ * @decimal_number: the decimal number
+ */
+
+void DEC_TO_HEXA(int decimal_Number)
+{
+	int i = 1, j, temp;
+	char hexa_Number[100];
+
+	while (decimal_Number != 0) {
+		temp = decimal_Number % 16;
+		if (temp < 10)
+			temp = temp + 48;
+		else
+			temp = temp + 55;
+		hexa_Number[i++] = temp;
+		decimal_Number = decimal_Number / 16;
+	}
+	for (j = i - 1; j > 0; j--)
+		putchar(hexa_Number[j]);
+}
