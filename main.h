@@ -20,7 +20,6 @@ int _strlen_printed(const char *s);
 int print_char(char ch);
 int oct(int n);
 int print_numbers(va_list list, char str);
-int bin(unsigned int n);
-
+char *bin(unsigned int n);
 
 #endif

@@ -30,6 +30,38 @@ int print_numbers(va_list list, char str)
 		len_pr += print_unumber(va_arg(list, unsigned int));
 	return (len_pr);
 }
+
+/**
+ * bin - this function convert decimal to binary
+ * @n: the decimal number
+ * Return: it return the binary number
+ */
+
+char *bin(unsigned int n)
+{
+	int len = 0, lem;
+	unsigned long int  m = n;
+	char *str;
+
+	while (n > 0)
+	{
+		n /= 2;
+		len++;
+	}
+	lem = len;
+	str = malloc(sizeof(char) * lem + 1);
+	if (str == NULL)
+		return (NULL);
+	while (lem > 0)
+	{
+		str[lem - 1] = m % 2 + '0';
+		m /= 2;
+		lem--;
+	}
+	return (str);
+}
+
+
 /**
  * it_spec - check if a char entred is a one of specifiers that came after %.
  * @s: char.

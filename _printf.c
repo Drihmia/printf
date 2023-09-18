@@ -29,17 +29,18 @@ int _printf(const char *format, ...)
 					putchar('%'), i++;
 				else if (*(i + 1) == 'd' || *(i + 1) == 'i' || *(i + 1) == 'u')
 					len_pr += print_numbers(list, *(i + 1)), i++;
-				else if (*(i + 1) == 'o')
+				else if (*(i + 1) == 'O')
 					len_pr += print_number(oct(va_arg(list, int))), i++;
 				else if (*(i + 1) == 'b')
-					len_pr += print_number(bin(va_arg(list, int))), i++;
+					len_pr += print_str(bin(va_arg(list, unsigned int))), i++;
+				else if (*(i + 1) == 'x' || *(i + 1) == 'X' || *(i + 1) == 'X')
+					i++;
+				else if (*(i + 1) == 'p')
+					i++;
 				else
-					return (-1);
-			}
+					return (-1);	}
 			else
-				putchar(*i);
-		}
-		va_end(list);
-	}
+				putchar(*i);	}
+		va_end(list); }
 	return (f_l + len_pr);
 }
