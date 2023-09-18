@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 				else if (*(i + 1) == 'p')
 					i++;
 				else
-					return (-1);	}
+					break;	}
 			else
 				putchar(*i);	}
 		va_end(list); }
