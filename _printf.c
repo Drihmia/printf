@@ -31,8 +31,6 @@ int _printf(const char *format, ...)
 					len_pr += print_numbers(list, *(i + 1)), i++;
 				else if (*(i + 1) == 'o')
 					len_pr += print_number(oct(va_arg(list, int))), i++;
-				else
-					i++;
 			}
 			else
 				putchar(*i);
