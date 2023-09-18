@@ -6,6 +6,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdio.h>
+#define ZERO 0
 
 int _printf(const char *format, ...);
 int print_number(int n);
