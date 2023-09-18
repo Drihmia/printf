@@ -3,9 +3,10 @@
 /**
  * DEC_TO_HEXA - this function convert a decimal num to an hexa with uppercase
  * @decimal_number: the decimal number
+ * Return:it return the value of the decimal number in hexa
  */
 
-char * DEC_TO_HEXA(int decimal_number)
+char *DEC_TO_HEXA(int decimal_number)
 {
 	int i = 0, j, tmp = decimal_number, start, end;
 	char *hexa_number, temp;
@@ -26,7 +27,7 @@ char * DEC_TO_HEXA(int decimal_number)
 		i++;
 	}
 
-	hexa_number = malloc(sizeof(char)*(i + 1));
+	hexa_number = malloc(sizeof(char) * (i + 1));
 	if (hexa_number == NULL)
 		return (NULL);
 	for (j = 0; j < i; j++)
@@ -48,9 +49,10 @@ char * DEC_TO_HEXA(int decimal_number)
 /**
  * dec_to_hexa - this function convert a decimal num to an hexa with lowercase
  * @decimal_number: the decimal number
+ * Return: it return the value of the decimal in hexa
  */
 
-char * dec_to_hexa(int decimal_number)
+char *dec_to_hexa(int decimal_number)
 {
 int i = 0, j, tmp = decimal_number, start, end;
 char *hexa_number, temp;
@@ -71,7 +73,7 @@ char *hexa_number, temp;
 		i++;
 	}
 
-	hexa_number = malloc(sizeof(char)*(i + 1));
+	hexa_number = malloc(sizeof(char) * (i + 1));
 		if (hexa_number == NULL)
 			return (NULL);
 		for (j = 0; j < i; j++)
@@ -79,8 +81,8 @@ char *hexa_number, temp;
 			tmp = decimal_number % 16;
 			hexa_number[j] = (tmp < 10) ? tmp + '0' : tmp + 'a' - 10;
 			decimal_number = decimal_number / 16;
-        }
-		hexa_number[j] = '\0';
+	}
+	hexa_number[j] = '\0';
 	for (start = 0, end = j - 1; start < end; start++, end--)
 	{
 	temp = hexa_number[start];
