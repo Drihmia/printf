@@ -40,8 +40,10 @@ int _printf(const char *format, ...)
 					i++;
 				else if (*(i + 1) == 'p')
 					i++;
+				else if (*(i + 1) == '\0');
+					break;
 				else
-					break;	}
+					return (-1); }
 			else
 				putchar(*i);	}
 		va_end(list); }
