@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 				else if (*(i + 1) == 'o')
 					len_pr += print_number(oct(va_arg(list, int))), i++;
 				else
-					putchar(*(i + 1)), i++;
+					i++;
 			}
 			else
 				putchar(*i);
