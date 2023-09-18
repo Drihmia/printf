@@ -30,3 +30,24 @@ int print_numbers(va_list list, char str)
 		len_pr += print_unumber(va_arg(list, unsigned int));
 	return (len_pr);
 }
+/**
+ * it_spec - check if a char entred is a one of specifiers that came after %.
+ * @s: char.
+ * Return: return the lenght of the given string s.
+ */
+int it_spec(char s)
+{
+	int i = 0;
+
+	if (s == 'c' || s == 'd' || s == 'e')
+		i++;
+	else if (s == 'f' || s == 'g' || s == 'i')
+		i++;
+	else if (s == 'o' || s == 's' || s == 'u')
+		i++;
+	else if (s == 'x')
+		i++;
+	else
+		i = 0;
+	return (i);
+}
