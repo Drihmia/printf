@@ -59,6 +59,8 @@ int dec_to(va_list list, char str)
 		len_pr += dec_to_hexa(va_arg(list, unsigned int)), va_end(list);
 	else if (str == 'p')
 		;
+	else if (str == 'S')
+		;
 	return (len_pr);
 }
 
