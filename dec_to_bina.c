@@ -167,7 +167,10 @@ int rot13(char *s)
 	char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	if (s == NULL)
+	{
 		s = "(null)";
+		return (4);
+	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 52; j++)
