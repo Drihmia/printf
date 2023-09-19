@@ -137,7 +137,10 @@ int print_pointer(void *ptr)
 	int buffer_size = snprintf(NULL, 0, "%p", ptr) + 1;
 
 	if (ptr == NULL)
-		return ("(nil");
+	{
+		print_str("(nil)");
+		return (5);
+	}
 	buffer = (char *)malloc(buffer_size);
 	if (buffer == NULL)
 		return (-1);
