@@ -169,7 +169,7 @@ int rot13(char *s)
 	if (s == NULL)
 	{
 		s = "(null)";
-		return (4);
+		return (5);
 	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
