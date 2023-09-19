@@ -40,9 +40,12 @@ int _printf(const char *format, ...)
 				else if (*(i + 1) == 'p')
 					i++;
 				else
-					return (-1);	}
+					return (-1);
+			}
 			else
-				putchar(*i);	}
-		va_end(list); }
+				putchar(*i);
+		}
+		va_end(list);
+	}
 	return (f_l + len_pr);
 }
