@@ -36,8 +36,10 @@ int _printf(const char *format, ...)
 					len_pr += print_str(bin(va_arg(list, unsigned int))), i++;
 					free(bin(va_arg(list, unsigned int)));
 				}
-				else if (*(i + 1) == 'x' || *(i + 1) == 'X' || *(i + 1) == 'X')
-					i++;
+				else if (*(i + 1) == 'X')
+					len_pr += DEC_TO_HEXA(va_arg(list, int)), i++;
+				else if (*(i + 1) == 'x')
+					len_pr += dec_to_hexa(va_arg(list, int)), i++;
 				else if (*(i + 1) == 'p')
 					i++;
 				else
