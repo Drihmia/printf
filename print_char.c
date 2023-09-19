@@ -52,7 +52,7 @@ int dec_to_bin(unsigned int n)
 		binary[1] = '\0';
 		putchar('0');
 		free(binary);
-		return (1);
+		return (0);
 	}
 	while (tmp > 0)
 	{
