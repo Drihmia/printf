@@ -121,5 +121,5 @@ int convertS(char *string)
 			putchar(string[i]), j++;
 
 	}
-	return (j);
+	return (j - 2);
 }
