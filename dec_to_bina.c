@@ -92,7 +92,6 @@ int dec_to_hexa(unsigned int decimal_number)
 	return (i);
 }
 
-#include "main.h"
 /**
  * convertS - this function is used in the case %S
  * @string: the input text
@@ -101,7 +100,10 @@ int dec_to_hexa(unsigned int decimal_number)
 
 int convertS(char *string)
 {
-int i, j = 0;
+	int i, j = 0;
+
+	if (string == NULL)
+		string = "(null)";
 	for (i = 0; string[i] != '\0'; i++)
 	{
 		if ((*(string + i) < 32) || (*(string + i) >= 127))
