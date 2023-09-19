@@ -104,17 +104,17 @@ int convertS(char *string)
 int i, j = 0;
 	for (i = 0; string[i] != '\0'; i++)
 	{
-		if ((*(string + i) > 0 && *(string + i) < 32) || *(string + i) >= 127)
+		if ((*(string + i) < 32) || (*(string + i) >= 127))
 		{
-			putchar('\''), j++;
+			putchar('\\'), j++;
 			putchar('x'), j++;
 			if (*(string + i) < 16)
 			{
 				putchar('0'), j++;
-				dec_to_hexa(string[i]), j++;
+				DEC_TO_HEXA(string[i]), j++, i++;
 			}
 			else
-				dec_to_hexa(string[i]), j++;
+				DEC_TO_HEXA(string[i]), j++;
 		}
 		putchar(string[i]), j++;
 
