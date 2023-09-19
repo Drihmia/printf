@@ -181,5 +181,5 @@ char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	{
 		putchar(s[i]);
 	}
-	return (i - 1);
+	return (i);
 }
