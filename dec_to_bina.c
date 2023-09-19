@@ -151,5 +151,5 @@ int print_pointer(void *ptr)
 		printed_chars++;
 	}
 	free(buffer);
-	return (printed_chars);
+	return (printed_chars - 1);
 }
