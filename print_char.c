@@ -30,8 +30,6 @@ int print_numbers(va_list list, char str)
 		len_pr += print_number(va_arg(list, int)), va_end(list);
 	else if (str == 'u')
 		len_pr += print_unumber(va_arg(list, unsigned int)), va_end(list);
-	else if (str == 'S')
-		len_pr += convertS(va_arg(list, char *));
 	return (len_pr);
 }
 
@@ -88,7 +86,7 @@ int it_spec(char s)
 		i++;
 	else if (s == 'o' || s == 's' || s == 'u')
 		i++;
-	else if (s == 'x' || s == 'S')
+	else if (s == 'x')
 		i++;
 	else
 		i = 0;
