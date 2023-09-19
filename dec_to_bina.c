@@ -118,8 +118,32 @@ int convertS(char *string)
 			else
 				DEC_TO_HEXA(string[i]), j += 1;
 		}
-			putchar(string[i]), j++;
+		putchar(string[i]), j++;
 
 	}
 	return (j - 1);
+}
+
+/**
+ * print_pointer - this function prints the pointer
+ * @ptr: the entrie pointer
+ * Return: it return the length of the pointer
+ */
+
+int print_pointer(void *ptr)
+{
+char *buffer = NULL;
+int printed_chars = 0, i;
+int buffer_size = snprintf(NULL, 0, "%p", ptr) + 1;
+	buffer = (char *)malloc(buffer_size);
+	if (buffer == NULL)
+		return (-1);
+	snprintf(buffer, buffer_size, "%p", ptr);
+	for (i = 0; buffer[i] != '\0'; i++)
+	{
+		putchar(buffer[i]);
+		printed_chars++;
+	}
+	free(buffer);
+	return (printed_chars);
 }
