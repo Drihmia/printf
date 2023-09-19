@@ -15,7 +15,7 @@ int oct(unsigned int n)
 	if (n == 0)
 	{
 		putchar('0');
-		return (0);
+		return (1);
 	}
 
 	while (n > 0)
@@ -36,5 +36,5 @@ int oct(unsigned int n)
 	for (i = 0; oct[i]; i++)
 		putchar(oct[i]);
 	free(oct);
-	return (len - 1);
+	return (len);
 }

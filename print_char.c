@@ -24,10 +24,13 @@ int print_numbers(va_list list, char str)
 {
 	int len_pr = 0;
 
-	if (str == 'd' || str == 'i')
+	if (str == 'd')
+		len_pr += print_number(va_arg(list, int));
+	if (str == 'i')
 		len_pr += print_number(va_arg(list, int));
 	else if (str == 'u')
 		len_pr += print_unumber(va_arg(list, unsigned int));
+	va_end(list);
 	return (len_pr);
 }
 
@@ -55,7 +58,7 @@ int dec_to_bin(unsigned int n)
 	}
 	binary = malloc(sizeof(char) * (i + 1));
 	if (binary == NULL)
-		return (0);
+		return (-1);
 	for (j = i - 1; j >= 0; j--)
 	{
 		*(binary + j) = (n % 2) + '0';
