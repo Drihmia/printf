@@ -50,26 +50,29 @@ int dec_to(va_list list, char str)
 	int len_pr = 0;
 
 	if (str == 'o')
-		len_pr += oct(va_arg(list, int)), va_end(list);
+		len_pr += oct(va_arg(list, unsigned int)), va_end(list);
 	else if (str == 'b')
-		len_pr += dec_to_bin(va_arg(list, int)), va_end(list);
+		len_pr += dec_to_bin(va_arg(list, unsigned int)), va_end(list);
 	else if (str == 'X')
-		len_pr += DEC_TO_HEXA(va_arg(list, int)), va_end(list);
+		len_pr += DEC_TO_HEXA(va_arg(list, unsigned int)), va_end(list);
 	else if (str == 'x')
-		len_pr += dec_to_hexa(va_arg(list, int)), va_end(list);
+		len_pr += dec_to_hexa(va_arg(list, unsigned int)), va_end(list);
+	else if (str == 'p')
+		;
+		/*len_pr += pointer(va_arg(list, int)), va_end(list);*/
 	return (len_pr);
 }
 
 /**
  * is_dec_to - check if there is a o, b, x, X after %.
  * @s: char.
- * return: 1 is there one of those, and 0 if not.
+ * Return: 1 is there one of those, and 0 if not.
  */
 int is_dec_to(char s)
 {
 	int i = 0;
 
-	if (s == 'o' || s == 'b')
+	if (s == 'o' || s == 'b' || s == 'p')
 		i = 1;
 	else if (s == 'X' || s == 'x')
 		i = 1;
