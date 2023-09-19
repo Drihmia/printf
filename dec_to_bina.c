@@ -13,7 +13,7 @@ int DEC_TO_HEXA(unsigned int decimal_number)
 
 	if (decimal_number == 0)
 	{
-		putchar(hexa_number[0]);
+		putchar('0');
 		return (0);
 	}
 
