@@ -45,14 +45,8 @@ int dec_to_bin(unsigned int n)
 
 	if (n == 0)
 	{
-		binary = malloc(sizeof(char) * 2);
-		if (binary == NULL)
-			return (1);
-		binary[0] = '0';
-		binary[1] = '\0';
 		putchar('0');
-		free(binary);
-		return (0);
+		return (1);
 	}
 	while (tmp > 0)
 	{
