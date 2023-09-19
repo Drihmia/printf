@@ -13,14 +13,8 @@ int DEC_TO_HEXA(unsigned int decimal_number)
 
 	if (decimal_number == 0)
 	{
-		hexa_number = malloc(sizeof(char) * 2);
-		if (hexa_number == NULL)
-			return (-1);
-		hexa_number[0] = '0';
-		hexa_number[1] = '\0';
 		putchar(hexa_number[0]);
-		free(hexa_number);
-		return (1);
+		return (0);
 	}
 
 	while (tmp != 0)
@@ -64,14 +58,8 @@ int dec_to_hexa(unsigned int decimal_number)
 
 	if (decimal_number == 0)
 	{
-		hexa_number = malloc(sizeof(char) * 2);
-		if (hexa_number == NULL)
-			return (-1);
-		hexa_number[0] = '0';
-		hexa_number[1] = '\0';
 		putchar('0');
-		free(hexa_number);
-		return (1);
+		return (0);
 	}
 
 	while (tmp != 0)
