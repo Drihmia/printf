@@ -3,10 +3,10 @@
 /**
  * DEC_TO_HEXA - this function convert a decimal num to an hexa with uppercase
  * @decimal_number: the decimal number
- * Return:it return the value of the decimal number in hexa
+ * Return:it return the length of the hexa number
  */
 
-char *DEC_TO_HEXA(int decimal_number)
+int DEC_TO_HEXA(unsigned int decimal_number)
 {
 	int i = 0, j, tmp = decimal_number, start, end;
 	char *hexa_number, temp;
@@ -15,10 +15,12 @@ char *DEC_TO_HEXA(int decimal_number)
 	{
 		hexa_number = malloc(sizeof(char) * 2);
 		if (hexa_number == NULL)
-			return (NULL);
+			return (-1);
 		hexa_number[0] = '0';
 		hexa_number[1] = '\0';
-		return (hexa_number);
+		putchar(hexa_number[0]);
+		free(hexa_number);
+		return (1);
 	}
 
 	while (tmp != 0)
@@ -29,7 +31,7 @@ char *DEC_TO_HEXA(int decimal_number)
 
 	hexa_number = malloc(sizeof(char) * (i + 1));
 	if (hexa_number == NULL)
-		return (NULL);
+		return (-1);
 	for (j = 0; j < i; j++)
 	{
 		tmp = decimal_number % 16;
@@ -43,28 +45,33 @@ char *DEC_TO_HEXA(int decimal_number)
 		hexa_number[start] = hexa_number[end];
 		hexa_number[end] = temp;
 	}
-	return (hexa_number);
+	for (j = 0; j < i; j++)
+		putchar(hexa_number[j]);
+	free(hexa_number);
+	return (i);
 }
 
 /**
  * dec_to_hexa - this function convert a decimal num to an hexa with lowercase
  * @decimal_number: the decimal number
- * Return: it return the value of the decimal in hexa
+ * Return: it return the length of the hexa number
  */
 
-char *dec_to_hexa(int decimal_number)
+int dec_to_hexa(unsigned int decimal_number)
 {
-int i = 0, j, tmp = decimal_number, start, end;
-char *hexa_number, temp;
+	int i = 0, j, tmp = decimal_number, start, end;
+	char *hexa_number, temp;
 
 	if (decimal_number == 0)
 	{
-	hexa_number = malloc(sizeof(char) * 2);
-	if (hexa_number == NULL)
-		return (NULL);
-	hexa_number[0] = '0';
-	hexa_number[1] = '\0';
-	return (hexa_number);
+		hexa_number = malloc(sizeof(char) * 2);
+		if (hexa_number == NULL)
+			return (-1);
+		hexa_number[0] = '0';
+		hexa_number[1] = '\0';
+		putchar('0');
+		free(hexa_number);
+		return (1);
 	}
 
 	while (tmp != 0)
@@ -74,20 +81,23 @@ char *hexa_number, temp;
 	}
 
 	hexa_number = malloc(sizeof(char) * (i + 1));
-		if (hexa_number == NULL)
-			return (NULL);
-		for (j = 0; j < i; j++)
-		{
-			tmp = decimal_number % 16;
-			hexa_number[j] = (tmp < 10) ? tmp + '0' : tmp + 'a' - 10;
-			decimal_number = decimal_number / 16;
+	if (hexa_number == NULL)
+		return (-1);
+	for (j = 0; j < i; j++)
+	{
+		tmp = decimal_number % 16;
+		hexa_number[j] = (tmp < 10) ? tmp + '0' : tmp + 'a' - 10;
+		decimal_number = decimal_number / 16;
 	}
 	hexa_number[j] = '\0';
 	for (start = 0, end = j - 1; start < end; start++, end--)
 	{
-	temp = hexa_number[start];
-	hexa_number[start] = hexa_number[end];
-	hexa_number[end] = temp;
+		temp = hexa_number[start];
+		hexa_number[start] = hexa_number[end];
+		hexa_number[end] = temp;
 	}
-return (hexa_number);
+	for (j = 0; j < i; j++)
+		putchar(hexa_number[j]);
+	free(hexa_number);
+	return (i);
 }
