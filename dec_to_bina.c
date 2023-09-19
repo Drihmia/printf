@@ -162,10 +162,12 @@ int print_pointer(void *ptr)
 
 int rot13(char *s)
 {
-int i, j;
-char s1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
+	char s1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
+	if (s == NULL)
+		return (0);
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 52; j++)
