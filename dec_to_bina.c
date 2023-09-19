@@ -103,7 +103,7 @@ int convertS(char *string)
 	int i, j = 0;
 
 	if (string == NULL)
-		return (1);
+		return (0);
 	for (i = 0; string[i] != '\0'; i++)
 	{
 		if ((*(string + i) < 32) || (*(string + i) >= 127))
