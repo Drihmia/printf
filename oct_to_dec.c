@@ -59,6 +59,8 @@ int dec_to(va_list list, char str)
 		len_pr += dec_to_hexa(va_arg(list, unsigned int)), va_end(list);
 	else if (str == 'S')
 		len_pr += convertS(va_arg(list, char *)), va_end(list);
+	else if (str == 'p')
+		len_pr += print_pointer(va_arg(list, void *)), va_end(list);
 	return (len_pr);
 }
 
@@ -71,7 +73,7 @@ int is_dec_to(char s)
 {
 	int i = 0;
 
-	if (s == 'o' || s == 'b')
+	if (s == 'o' || s == 'b' || s == 'p')
 		i = 1;
 	else if (s == 'X' || s == 'x' || s == 'S')
 		i = 1;
