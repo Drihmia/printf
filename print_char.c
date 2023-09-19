@@ -10,7 +10,7 @@ int print_char(char ch)
 	if (ch == '\0')
 		return (-1);
 	putchar(ch);
-	return (0);
+	return (1);
 }
 
 /**
