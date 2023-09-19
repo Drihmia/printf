@@ -8,7 +8,8 @@
 
 int DEC_TO_HEXA(unsigned int decimal_number)
 {
-	int i = 0, j, tmp = decimal_number, start, end;
+	int i = 0, j, start, end;
+	unsigned int tmp = decimal_number;
 	char *hexa_number, temp;
 
 	if (decimal_number == 0)
@@ -53,7 +54,8 @@ int DEC_TO_HEXA(unsigned int decimal_number)
 
 int dec_to_hexa(unsigned int decimal_number)
 {
-	int i = 0, j, tmp = decimal_number, start, end;
+	int i = 0, j, start, end;
+	unsigned int tmp = decimal_number;
 	char *hexa_number, temp;
 
 	if (decimal_number == 0)
