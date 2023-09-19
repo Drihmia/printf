@@ -40,14 +40,14 @@ int print_numbers(va_list list, char str)
 int dec_to_bin(unsigned int n)
 {
 	int i = 0, j;
-	unsigned tmp = n;
+	unsigned int tmp = n;
 	char *binary;
 
 	if (n == 0)
 	{
 		binary = malloc(sizeof(char) * 2);
 		if (binary == NULL)
-			return (-1);
+			return (1);
 		binary[0] = '0';
 		binary[1] = '\0';
 		putchar('0');
