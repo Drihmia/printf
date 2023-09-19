@@ -91,3 +91,33 @@ int dec_to_hexa(unsigned int decimal_number)
 	free(hexa_number);
 	return (i);
 }
+
+#include "main.h"
+/**
+ * convertS - this function is used in the case %S
+ * @string: the input text
+ * Return: it return the length of output text
+ */
+
+int convertS(char *string)
+{
+int i, j = 0;
+	for (i = 0; string[i] != '\0'; i++)
+	{
+		if ((*(string + i) > 0 && *(string + i) < 32) || *(string + i) >= 127)
+		{
+			putchar('\''), j++;
+			putchar('x'), j++;
+			if (*(string + i) < 16)
+			{
+				putchar('0'), j++;
+				dec_to_hexa(string[i]), j++;
+			}
+			else
+				dec_to_hexa(string[i]), j++;
+		}
+		putchar(string[i]), j++;
+
+	}
+	return (j);
+}
