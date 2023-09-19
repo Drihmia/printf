@@ -27,5 +27,6 @@ int dec_to(va_list list, char str);
 int is_dec_to(char s);
 int convertS(char *string);
 int print_pointer(void *ptr);
+int rot13(char *s);
 
 #endif
