@@ -16,6 +16,7 @@ int print_unumber(unsigned int n);
 int _ulen(unsigned int n);
 unsigned int _upow(int m, int n);
 int print_str(char *str);
+int print_str_rev(char *str);
 int _strlen_printed(const char *s);
 int print_char(char ch);
 int oct(unsigned int n);

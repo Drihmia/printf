@@ -63,6 +63,8 @@ int dec_to(va_list list, char str)
 		len_pr += print_pointer(va_arg(list, void *)), va_end(list);
 	else if (str == 'R')
 		len_pr += rot13(va_arg(list, char *)), va_end(list);
+	else if (str == 'r')
+		len_pr += print_str_rev(va_arg(list, char *)), va_end(list);
 	return (len_pr);
 }
 
@@ -78,7 +80,25 @@ int is_dec_to(char s)
 
 	if (s == 'o' || s == 'b' || s == 'p' || s == 'R')
 		i = 1;
-	else if (s == 'X' || s == 'x' || s == 'S')
+	else if (s == 'X' || s == 'x' || s == 'S' || s == 'r')
 		i = 1;
 	return (i);
+}
+/**
+ * print_str_rev - prints the reversed string.
+ * @str: pointer to char.
+ * Return: the lenght of printed chars.
+ */
+int print_str_rev(char *str)
+{
+	int p_l, i = 0;
+
+	if (str == NULL)
+		str = "(null)";
+	p_l = _strlen_printed(str);
+	for (i = p_l - 1; i >= 0; i--)
+	{
+		putchar(str[i]);
+	}
+	return (p_l);
 }
