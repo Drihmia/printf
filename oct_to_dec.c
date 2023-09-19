@@ -57,6 +57,8 @@ int dec_to(va_list list, char str)
 		len_pr += DEC_TO_HEXA(va_arg(list, unsigned int)), va_end(list);
 	else if (str == 'x')
 		len_pr += dec_to_hexa(va_arg(list, unsigned int)), va_end(list);
+	else if (str == 'S')
+                len_pr += convertS(va_arg(list, char *));
 	return (len_pr);
 }
 
@@ -71,7 +73,7 @@ int is_dec_to(char s)
 
 	if (s == 'o' || s == 'b')
 		i = 1;
-	else if (s == 'X' || s == 'x')
+	else if (s == 'X' || s == 'x' || s == 'S')
 		i = 1;
 	return (i);
 }
