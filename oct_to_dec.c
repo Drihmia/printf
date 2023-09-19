@@ -74,7 +74,7 @@ int is_dec_to(char s)
 
 	if (s == 'o' || s == 'b' || s == 'p')
 		i = 1;
-	else if (s == 'X' || s == 'x')
+	else if (s == 'X' || s == 'x' || s == 'S')
 		i = 1;
 	return (i);
 }
