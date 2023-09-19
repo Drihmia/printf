@@ -55,7 +55,7 @@ int dec_to_bin(unsigned int n)
 	}
 	binary = malloc(sizeof(char) * (i + 1));
 	if (binary == NULL)
-		return (-1);
+		return (0);
 	for (j = i - 1; j >= 0; j--)
 	{
 		*(binary + j) = (n % 2) + '0';

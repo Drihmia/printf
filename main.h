@@ -18,7 +18,7 @@ unsigned int _upow(int m, int n);
 int print_str(char *str);
 int _strlen_printed(const char *s);
 int print_char(char ch);
-int oct(int n);
+int oct(unsigned int n);
 int print_numbers(va_list list, char str);
 int dec_to_bin(unsigned int n);
 int DEC_TO_HEXA(unsigned int decimal_number);

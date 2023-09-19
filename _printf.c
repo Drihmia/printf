@@ -3,7 +3,7 @@
 /**
  * _printf - it's like the function printf in the cases
  * @format: the format
- * Return: it always return 0
+ * Return: it always return the number of all printed chars to stdout.
  */
 
 int _printf(const char *format, ...)
@@ -27,8 +27,8 @@ int _printf(const char *format, ...)
 				putchar('%'), i++;
 			else if (*(i + 1) == 'd' || *(i + 1) == 'i' || *(i + 1) == 'u')
 				len_pr += print_numbers(list, *(i + 1)), i++;
-			else if (*(i + 1) == 'O')
-				len_pr += print_number(oct(va_arg(list, int))), i++;
+			else if (*(i + 1) == 'o')
+				len_pr += oct(va_arg(list, int)), i++;
 			else if (*(i + 1) == 'b')
 				len_pr += dec_to_bin(va_arg(list, int)), i++;
 			else if (*(i + 1) == 'X')
