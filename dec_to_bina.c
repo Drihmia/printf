@@ -132,9 +132,10 @@ int convertS(char *string)
 
 int print_pointer(void *ptr)
 {
-char *buffer = NULL;
-int printed_chars = 0, i;
-int buffer_size = snprintf(NULL, 0, "%p", ptr) + 1;
+	char *buffer = NULL;
+	int printed_chars = 0, i;
+	int buffer_size = snprintf(NULL, 0, "%p", ptr) + 1;
+
 	buffer = (char *)malloc(buffer_size);
 	if (buffer == NULL)
 		return (-1);
