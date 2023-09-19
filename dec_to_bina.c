@@ -139,7 +139,7 @@ int print_pointer(void *ptr)
 	if (ptr == NULL)
 	{
 		print_str("(nil)");
-		return (5);
+		return (4);
 	}
 	buffer = (char *)malloc(buffer_size);
 	if (buffer == NULL)
