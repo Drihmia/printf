@@ -61,6 +61,8 @@ int dec_to(va_list list, char str)
 		len_pr += convertS(va_arg(list, char *)), va_end(list);
 	else if (str == 'p')
 		len_pr += print_pointer(va_arg(list, void *)), va_end(list);
+	else if (str == 'R')
+		len_pr += rot13(va_arg(list, char *)), va_end(list);
 	return (len_pr);
 }
 
@@ -69,11 +71,12 @@ int dec_to(va_list list, char str)
  * @s: char.
  * Return: 1 is there one of those, and 0 if not.
  */
+
 int is_dec_to(char s)
 {
 	int i = 0;
 
-	if (s == 'o' || s == 'b' || s == 'p')
+	if (s == 'o' || s == 'b' || s == 'p' || s == 'R')
 		i = 1;
 	else if (s == 'X' || s == 'x' || s == 'S')
 		i = 1;
