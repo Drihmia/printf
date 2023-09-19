@@ -45,6 +45,7 @@ int dec_to_bin(unsigned int n)
 
 	if (n == 0)
 	{
+		putchar('0');
 		return (0);
 	}
 	while (tmp > 0)
