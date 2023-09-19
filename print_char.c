@@ -25,12 +25,11 @@ int print_numbers(va_list list, char str)
 	int len_pr = 0;
 
 	if (str == 'd')
-		len_pr += print_number(va_arg(list, int));
+		len_pr += print_number(va_arg(list, int)), va_end(list);
 	if (str == 'i')
-		len_pr += print_number(va_arg(list, int));
+		len_pr += print_number(va_arg(list, int)), va_end(list);
 	else if (str == 'u')
-		len_pr += print_unumber(va_arg(list, unsigned int));
-	va_end(list);
+		len_pr += print_unumber(va_arg(list, unsigned int)), va_end(list);
 	return (len_pr);
 }
 
