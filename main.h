@@ -23,5 +23,7 @@ int print_numbers(va_list list, char str);
 int dec_to_bin(unsigned int n);
 int DEC_TO_HEXA(unsigned int decimal_number);
 int dec_to_hexa(unsigned int decimal_number);
+int dec_to(va_list list, char str);
+int is_dec_to(char s);
 
 #endif

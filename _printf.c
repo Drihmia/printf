@@ -27,14 +27,8 @@ int _printf(const char *format, ...)
 				putchar('%'), i++;
 			else if (*(i + 1) == 'd' || *(i + 1) == 'i' || *(i + 1) == 'u')
 				len_pr += print_numbers(list, *(i + 1)), i++;
-			else if (*(i + 1) == 'o')
-				len_pr += oct(va_arg(list, int)), i++;
-			else if (*(i + 1) == 'b')
-				len_pr += dec_to_bin(va_arg(list, int)), i++;
-			else if (*(i + 1) == 'X')
-				len_pr += DEC_TO_HEXA(va_arg(list, int)), i++;
-			else if (*(i + 1) == 'x')
-				len_pr += dec_to_hexa(va_arg(list, int)), i++;
+			else if (is_dec_to(*(i + 1)))
+				len_pr += dec_to(list, *(i + 1)), i++;
 			else if (*(i + 1) == 'p')
 				i++;
 			else

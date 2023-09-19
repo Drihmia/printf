@@ -15,7 +15,7 @@ int print_char(char ch)
 
 /**
  * print_numbers - print d,i and unsigned i od numbers.
- * @str: pointer to chars.
+ * @str: char.
  * @list: it is variable of type va_list.
  * Return: integer that reflect the nember of printed characters (digits).
  */
