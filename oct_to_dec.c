@@ -100,5 +100,5 @@ int print_str_rev(char *str)
 	{
 		putchar(str[i]);
 	}
-	return (p_l);
+	return (p_l - 1);
 }
