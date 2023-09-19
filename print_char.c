@@ -32,34 +32,46 @@ int print_numbers(va_list list, char str)
 }
 
 /**
- * bin - this function convert decimal to binary
+ * dec_to_bin - this function convert decimal to binary
  * @n: the decimal number
- * Return: it return the binary number
+ * Return: it return the length of the binary number
  */
 
-char *bin(unsigned int n)
+int dec_to_bin(unsigned int n)
 {
-	int len = 0, lem;
-	unsigned long int  m = n;
-	char *str;
+	int i = 0, j;
+	unsigned tmp = n;
+	char *binary;
 
-	while (n > 0)
+	if (n == 0)
 	{
+		binary = malloc(sizeof(char) * 2);
+		if (binary == NULL)
+			return (-1);
+		binary[0] = '0';
+		binary[1] = '\0';
+		putchar('0');
+		free(binary);
+		return (1);
+	}
+	while (tmp > 0)
+	{
+		i++;
+		tmp /= 2;
+	}
+	binary = malloc(sizeof(char) * (i + 1));
+	if (binary == NULL)
+		return (-1);
+	for (j = i - 1; j >= 0; j--)
+	{
+		*(binary + j) = (n % 2) + '0';
 		n /= 2;
-		len++;
 	}
-	lem = len;
-	str = malloc(sizeof(char) * lem + 1);
-	if (str == NULL)
-		return (NULL);
-	while (lem > 0)
-	{
-		str[lem - 2] = m % 2 + '0';
-		m /= 2;
-		lem--;
-	}
-	str[len - 1] = '\0';
-	return (str);
+	binary[i] = '\0';
+	for (j = 0; j < i; j++)
+		putchar(binary[j]);
+	free(binary);
+	return (i);
 }
 
 
