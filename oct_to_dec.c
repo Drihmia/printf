@@ -15,7 +15,7 @@ int oct(unsigned int n)
 	if (n == 0)
 	{
 		putchar('0');
-		return (0);
+		return (1);
 	}
 
 	while (n > 0)
