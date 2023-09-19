@@ -6,10 +6,10 @@
  * Return:it return the length of the hexa number
  */
 
-int DEC_TO_HEXA(int decimal_number)
+int DEC_TO_HEXA(unsigned int decimal_number)
 {
 	int i = 0, j, start, end;
-	int tmp = decimal_number;
+	unsigned int tmp = decimal_number;
 	char *hexa_number, temp;
 
 	if (decimal_number == 0)
@@ -52,10 +52,10 @@ int DEC_TO_HEXA(int decimal_number)
  * Return: it return the length of the hexa number
  */
 
-int dec_to_hexa(int decimal_number)
+int dec_to_hexa(unsigned int decimal_number)
 {
 	int i = 0, j, start, end;
-	int tmp = decimal_number;
+	unsigned int tmp = decimal_number;
 	char *hexa_number, temp;
 
 	if (decimal_number == 0)
