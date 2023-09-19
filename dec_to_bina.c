@@ -114,7 +114,7 @@ int i, j = 0;
 				DEC_TO_HEXA(string[i]), j++, i++;
 			}
 			else
-				DEC_TO_HEXA(string[i]), j++;
+				DEC_TO_HEXA(string[i]), j += 2;
 		}
 		putchar(string[i]), j++;
 
