@@ -65,7 +65,7 @@ int dec_to_bin(unsigned int n)
 	for (j = 0; j < i; j++)
 		putchar(binary[j]);
 	free(binary);
-	return (i);
+	return (i - 1);
 }
 
 
