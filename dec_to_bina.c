@@ -116,10 +116,10 @@ int convertS(char *string)
 				DEC_TO_HEXA(string[i]), j++, i++;
 			}
 			else
-				DEC_TO_HEXA(string[i]), j += 2;
+				DEC_TO_HEXA(string[i]), j += 1;
 		}
 			putchar(string[i]), j++;
 
 	}
-	return (j - 2);
+	return (j - 1);
 }
