@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	const char *i = format;
 	int len_pr = 0, f_l = _strlen_printed(format);
 
+	if (format == NULL)
+		return (-1);
 	va_start(list, format);
 	for (; *i != '\0'; i++)
 	{
