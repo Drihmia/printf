@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			else if (is_dec_to(*(i + 1)))
 				len_pr += dec_to(list, *(i + 1)), i++;
 			else
-				print_char('%'), print_char(*(i + 1));
+				print_char(*i);
 		}
 		else
 			putchar(*i);
