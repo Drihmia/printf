@@ -86,8 +86,6 @@ int _strlen_printed(const char *s)
 				s++;
 			else if (*s == 'x')
 				s++;
-			else
-				i++, s++;
 		}
 		else if ((*s >= 32 && *s < 127) || (*s <= 13 && *s >= 7))
 		{

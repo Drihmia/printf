@@ -29,8 +29,10 @@ int _printf(const char *format, ...)
 				len_pr += print_numbers(list, *(i + 1)), i++;
 			else if (is_dec_to(*(i + 1)))
 				len_pr += dec_to(list, *(i + 1)), i++;
-			else
+			else if (*(i + 1) != '\0')
 				print_char(*i);
+			else
+				return (-1);
 		}
 		else
 			putchar(*i);
