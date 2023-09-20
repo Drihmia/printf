@@ -7,8 +7,6 @@
  */
 int print_char(char ch)
 {
-	if (ch == '\0')
-		return (0);
 	putchar(ch);
 	return (1);
 }
