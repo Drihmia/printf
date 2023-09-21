@@ -163,7 +163,7 @@ int print_pointer(void *ptr)
 
 int rot13(char *s)
 {
-	int i, j;
+	int i, j, a = 0;
 	char s1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
@@ -174,18 +174,21 @@ int rot13(char *s)
 	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < 52; j++)
+		a = 0;
+		if (isalpha(s[i]))
 		{
-			if (s[i] == s1[j])
+			a = 1;
+			for (j = 0; j < 52; j++)
 			{
-				s[i] = s2[j];
-				break;
+				if (s[i] == s1[j])
+				{
+					putchar(s2[j]);
+					break;
+				}
 			}
 		}
-	}
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		putchar(s[i]);
+		if (!a)
+			putchar(s[i]);
 	}
 	return (i - 1);
 }

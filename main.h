@@ -6,6 +6,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdio.h>
+#include <ctype.h>
 #define ZERO 0
 
 int _printf(const char *format, ...);
