@@ -23,7 +23,7 @@ int print_unumber(unsigned int n)
 	}
 	hold = (n % 10) + '0';
 	putchar(hold);
-	return (_len(n));
+	return (_ulen(n));
 }
 
 /**
