@@ -50,21 +50,21 @@ int dec_to(va_list list, char str)
 	int len_pr = 0;
 
 	if (str == 'o')
-		len_pr += oct(va_arg(list, unsigned int)), va_end(list);
+		len_pr += oct(va_arg(list, unsigned int));
 	else if (str == 'b')
-		len_pr += dec_to_bin(va_arg(list, unsigned int)), va_end(list);
+		len_pr += dec_to_bin(va_arg(list, unsigned int));
 	else if (str == 'X')
-		len_pr += DEC_TO_HEXA(va_arg(list, unsigned int)), va_end(list);
+		len_pr += DEC_TO_HEXA(va_arg(list, unsigned int));
 	else if (str == 'x')
-		len_pr += dec_to_hexa(va_arg(list, unsigned int)), va_end(list);
+		len_pr += dec_to_hexa(va_arg(list, unsigned int));
 	else if (str == 'S')
-		len_pr += convertS(va_arg(list, char *)), va_end(list);
+		len_pr += convertS(va_arg(list, char *));
 	else if (str == 'p')
-		len_pr += print_pointer(va_arg(list, void *)), va_end(list);
+		len_pr += print_pointer(va_arg(list, void *));
 	else if (str == 'R')
-		len_pr += rot13(va_arg(list, char *)), va_end(list);
+		len_pr += rot13(va_arg(list, char *));
 	else if (str == 'r')
-		len_pr += print_str_rev(va_arg(list, char *)), va_end(list);
+		len_pr += print_str_rev(va_arg(list, char *));
 	return (len_pr);
 }
 

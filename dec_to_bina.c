@@ -15,7 +15,7 @@ int DEC_TO_HEXA(unsigned int decimal_number)
 	if (decimal_number == 0)
 	{
 		putchar('0');
-		return (1);
+		return (0);
 	}
 
 	while (tmp != 0)
@@ -43,7 +43,7 @@ int DEC_TO_HEXA(unsigned int decimal_number)
 	for (j = 0; j < i; j++)
 		putchar(hexa_number[j]);
 	free(hexa_number);
-	return (i);
+	return (i - 1);
 }
 
 /**
@@ -61,7 +61,7 @@ int dec_to_hexa(unsigned int decimal_number)
 	if (decimal_number == 0)
 	{
 		putchar('0');
-		return (1);
+		return (0);
 	}
 
 	while (tmp != 0)
@@ -89,7 +89,7 @@ int dec_to_hexa(unsigned int decimal_number)
 	for (j = 0; j < i; j++)
 		putchar(hexa_number[j]);
 	free(hexa_number);
-	return (i);
+	return (i - 1);
 }
 
 /**
