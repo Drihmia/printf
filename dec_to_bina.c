@@ -116,7 +116,7 @@ int convertS(char *string)
 				DEC_TO_HEXA(string[i]), j++;
 			}
 			else
-				DEC_TO_HEXA(string[i]), j += 1;
+				DEC_TO_HEXA(string[i]), j += 2;
 		}
 		else
 			putchar(string[i]), j++;
