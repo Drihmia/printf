@@ -61,7 +61,7 @@ int dec_to_hexa(unsigned int decimal_number)
 	if (decimal_number == 0)
 	{
 		putchar('0');
-		return (0);
+		return (1);
 	}
 
 	while (tmp != 0)
