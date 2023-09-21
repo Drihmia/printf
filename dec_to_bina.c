@@ -113,12 +113,13 @@ int convertS(char *string)
 			if (*(string + i) < 16)
 			{
 				putchar('0'), j++;
-				DEC_TO_HEXA(string[i]), j++, i++;
+				DEC_TO_HEXA(string[i]), j++;
 			}
 			else
 				DEC_TO_HEXA(string[i]), j += 1;
 		}
-		putchar(string[i]), j++;
+		else
+			putchar(string[i]), j++;
 
 	}
 	return (j - 1);
